@@ -1,0 +1,196 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for centering everything */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Login Box */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Instagram Logo */
+
+.logo {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 60px;
+    margin-bottom: 50px;
+    font-weight: 50;
+    color: #000000;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 4px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+/* Login Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #87CEEB;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+button:enabled {
+    background-color: #0095f6; 
+    cursor: pointer;
+}
+button:enabled:hover {
+    background-color: #007ab8; 
+}
+
+/* OR Section */
+.or-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+    font-size: 14px;
+    color: #888;
+}
+
+.line {
+    height: 1px;
+    width: 40%;
+    background-color: #ddd;
+}
+
+.or-section span {
+    padding: 0 10px;
+}
+
+/* Facebook Login Button */
+.fb-login {
+    background: none;
+    color: #4580fd;
+    font-weight: bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* display: block; */
+
+    align-items: center;
+    gap: 10px;
+    /* vertical-align: middle; */
+}
+.fb-logo {
+    width: 18px; 
+    height: auto;
+    vertical-align: -3px;
+    
+
+}
+
+/* Forgot Password */
+p a {
+    margin-top: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #1b1b1b;
+    /* padding: 20px; */
+   
+}
+p {
+    margin-top: 25px;
+}
+
+.seperate {
+    
+    color: #6d6a6a;
+    padding: 15px;
+    font-size: 12px;
+}
+
+/* Sign-Up Section */
+.signup-section {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 15px;
+    /* background: white; */
+    /* border: 1px solid #ddd; */
+    margin-top: 10px;
+    font-size: 14px;
+    /* color: #0099ff; */
+}
+.signup-section a {
+    text-decoration: none;
+    color: #0071bd;
+    font: bold;
+}
+
+/* Download App Section */
+.download-section {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.download-section img {
+    width: 120px;
+    margin: 5px;
+}
+
+/* ✅ Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        padding-top: 50px;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: none;
+        padding: 30px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .signup-section {
+        width: 100%;
+        max-width: none;
+        border: none;
+    }
+
+    .download-section img {
+        width: 100px;
+    }
+}

