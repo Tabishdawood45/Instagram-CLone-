@@ -14,13 +14,22 @@ app.use(express.static("public"));
 app.use(cors());
 app.use(bodyParser.json());
 
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     database: "insta_clone",
+//     password: "123456",
+//     port: 5432,
+// });
+
 const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "insta_clone",
-    password: "123456",
-    port: 5432,
+    user: process.env.PG_USER || 'postgres',
+    host: process.env.PG_HOST || 'localhost',
+    database: process.env.PG_DATABASE || 'insta_clone',
+    password: process.env.PG_PASSWORD || '123456',
+    port: process.env.PG_PORT || 5432,
 });
+
 app.post("/register", async (req, res) => {
     const { username, password } = req.body;
 
